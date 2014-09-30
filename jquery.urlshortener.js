@@ -10,7 +10,7 @@
 
     $.getScript("https://apis.google.com/js/client.js", function () {
         (function checkIfLoaded() {
-            if (gapi.client) {
+            if (gapi.client && $.urlShortener.settings.apiKey) {
                 scriptsLoaded = true;
                 gapi.client.setApiKey($.urlShortener.settings.apiKey);
                 gapi.client.load('urlshortener', $.urlShortener.settings.version, function () {
@@ -85,7 +85,7 @@
 
     }
     $.urlShortener.settings = {
-        apiKey: '',
+        apiKey: null,
         version: 'v1',
     };
 
